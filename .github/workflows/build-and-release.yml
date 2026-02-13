@@ -41,7 +41,7 @@ jobs:
           draft: false
           prerelease: false
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
       
       - name: Upload artifact for workflow
         uses: actions/upload-artifact@v3
