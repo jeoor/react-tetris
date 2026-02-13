@@ -8,6 +8,9 @@ on:
       - 'v*'
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -34,7 +37,7 @@ jobs:
           cd ..
       
       - name: Create Release
-        if: startsWith(github.ref, 'refs/tags/v')
+        if: startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v1
         with:
           files: react-tetris-*.zip
@@ -44,8 +47,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
       
       - name: Upload artifact for workflow
+        if: "!startsWith(github.ref, 'refs/tags/')"
         uses: actions/upload-artifact@v4
         with:
-          name: react-tetris-build
+          name: react-tetris-build-${{ github.ref_name }}
           path: react-tetris-*.zip
           retention-days: 30
