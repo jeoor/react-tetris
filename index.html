@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="renderer" content="webkit">
+  <meta name="description" content="使用React、Redux、Immutable制作的俄罗斯方块">
+  <meta name="keywords" content="俄罗斯方块,Tetris,React,Redux,Immuatble,JavaScript">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <script>
+    ;(() => {
+      const width = parseInt(window.screen.width, 10);
+      const scale = width / 640;
+      const userAgent = navigator.userAgent.toLowerCase();
+      const parts = ['width=640'];
+
+      if (/android (\d+\.\d+)/.test(userAgent)) {
+        if (parseFloat(RegExp.$1) > 2.3) {
+          parts.push(`minimum-scale=${scale}`, `maximum-scale=${scale}`);
+        }
+      } else {
+        parts.push('user-scalable=no');
+      }
+
+      document.write(`<meta name="viewport" content="${parts.join(',')}">`);
+    })();
+  </script>
+  <title>俄罗斯方块</title>
+  <link href="/src/styles/loader.css" rel="stylesheet">
+</head>
+<body>
+  <div id="root">
+    <div class="load">
+      <div class="loader">加载中...</div>
+    </div>
+  </div>
+  <script type="module" src="/src/index.ts"></script>
+</body>
+</html>

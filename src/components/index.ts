@@ -1,0 +1,10 @@
+export { default as Decorate } from './decorate';
+export { default as Guide } from './guide';
+export { default as Keyboard } from './keyboard';
+export { default as Logo } from './logo';
+export { default as Matrix } from './matrix';
+export { default as Music } from './music';
+export { default as Next } from './next';
+export { default as Number } from './number';
+export { default as Pause } from './pause';
+export { default as Point } from './point';
